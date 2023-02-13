@@ -5,18 +5,19 @@ import * as actions from './actions';
 
 export class Moleculer implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Moleculer',
+		displayName: 'Moleculer Broker',
 		name: 'moleculer',
-		description: 'Moleculer Services',
+		description: 'Moleculer Broker',
 		icon: 'file:Moleculer.svg',
 		version: 1,
-		subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
+		subtitle:
+			'={{ $parameter["operation"] + ": " + ($parameter["actionName"] || $parameter["eventName]) }}',
 		inputs: ['main'],
 		outputs: ['main'],
 		defaults: {
-			name: 'Moleculer',
+			name: 'Moleculer Broker',
 		},
-		group: ['Moleculer'],
+		group: ['moleculer'],
 		properties: [
 			{
 				displayName: 'Resource',

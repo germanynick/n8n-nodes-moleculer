@@ -1,6 +1,7 @@
 import { IExecuteFunctions } from 'n8n-core';
 import { INodeExecutionData } from 'n8n-workflow';
 import { ServiceBroker } from 'moleculer';
+import { Json } from '../../utils/json';
 
 export async function execute(
 	this: IExecuteFunctions,
@@ -15,7 +16,7 @@ export async function execute(
 
 	const result = await broker
 		.start()
-		.then(() => broker.call(actionName, params, context))
+		.then(() => broker.call(actionName, Json.parse(params), Json.parse(context)))
 		.finally(() => broker.stop());
 
 	return this.helpers.returnJsonArray(result as any);

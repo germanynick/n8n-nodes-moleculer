@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-moleculer",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Integrate Moleculer Services",
 	"keywords": [
 		"n8n-community-node-package"
@@ -37,7 +37,8 @@
 			"dist/credentials/MoleculerApi.credentials.js"
 		],
 		"nodes": [
-			"dist/nodes/Moleculer/Moleculer.node.js"
+			"dist/nodes/Moleculer/Moleculer.node.js",
+			"dist/nodes/Moleculer/MoleculerTrigger.node.js"
 		]
 	},
 	"devDependencies": {
